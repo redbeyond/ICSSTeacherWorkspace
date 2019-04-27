@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.demo.business.mapper.TCaseRecordMapper">
+  <resultMap id="BaseResultMap" type="org.example.demo.business.model.TCaseRecord">
+    <id column="CASE_REC_NO" jdbcType="CHAR" property="caseRecNo" />
+    <result column="CONSULTATION_DATE" jdbcType="TIMESTAMP" property="consultationDate" />
+    <result column="MAIN_SYMPTOM" jdbcType="VARCHAR" property="mainSymptom" />
+    <result column="STAFF_CODE" jdbcType="CHAR" property="staffCode" />
+    <result column="PATIENT_NO" jdbcType="CHAR" property="patientNo" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BOOKWRITER.T_CASE_RECORD
+    where CASE_REC_NO = #{caseRecNo,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="org.example.demo.business.model.TCaseRecord">
+    insert into BOOKWRITER.T_CASE_RECORD (CASE_REC_NO, CONSULTATION_DATE, MAIN_SYMPTOM, 
+      STAFF_CODE, PATIENT_NO)
+    values (#{caseRecNo,jdbcType=CHAR}, #{consultationDate,jdbcType=TIMESTAMP}, #{mainSymptom,jdbcType=VARCHAR}, 
+      #{staffCode,jdbcType=CHAR}, #{patientNo,jdbcType=CHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="org.example.demo.business.model.TCaseRecord">
+    update BOOKWRITER.T_CASE_RECORD
+    set CONSULTATION_DATE = #{consultationDate,jdbcType=TIMESTAMP},
+      MAIN_SYMPTOM = #{mainSymptom,jdbcType=VARCHAR},
+      STAFF_CODE = #{staffCode,jdbcType=CHAR},
+      PATIENT_NO = #{patientNo,jdbcType=CHAR}
+    where CASE_REC_NO = #{caseRecNo,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select CASE_REC_NO, CONSULTATION_DATE, MAIN_SYMPTOM, STAFF_CODE, PATIENT_NO
+    from BOOKWRITER.T_CASE_RECORD
+    where CASE_REC_NO = #{caseRecNo,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select CASE_REC_NO, CONSULTATION_DATE, MAIN_SYMPTOM, STAFF_CODE, PATIENT_NO
+    from BOOKWRITER.T_CASE_RECORD
+  </select>
+</mapper>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.demo.business.mapper.MStaffMapper">
+  <resultMap id="BaseResultMap" type="org.example.demo.business.model.MStaff">
+    <id column="STAFF_CODE" jdbcType="CHAR" property="staffCode" />
+    <result column="STAFF_NAME" jdbcType="VARCHAR" property="staffName" />
+    <result column="SEX" jdbcType="CHAR" property="sex" />
+    <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="ID" jdbcType="CHAR" property="id" />
+    <result column="PHONE_NUMBER" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="POSITION" jdbcType="VARCHAR" property="position" />
+    <result column="SALARY" jdbcType="NUMERIC" property="salary" />
+    <result column="START_WORK_DATE" jdbcType="TIMESTAMP" property="startWorkDate" />
+    <result column="EDUCATION_LEVEL" jdbcType="VARCHAR" property="educationLevel" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="ZIP_CODE" jdbcType="CHAR" property="zipCode" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="DEPT_CODE" jdbcType="VARCHAR" property="deptCode" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BOOKWRITER.M_STAFF
+    where STAFF_CODE = #{staffCode,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="org.example.demo.business.model.MStaff">
+    insert into BOOKWRITER.M_STAFF (STAFF_CODE, STAFF_NAME, SEX, 
+      BIRTHDAY, ID, PHONE_NUMBER, 
+      POSITION, SALARY, START_WORK_DATE, 
+      EDUCATION_LEVEL, ADDRESS, ZIP_CODE, 
+      REMARK, DEPT_CODE)
+    values (#{staffCode,jdbcType=CHAR}, #{staffName,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{id,jdbcType=CHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
+      #{position,jdbcType=VARCHAR}, #{salary,jdbcType=NUMERIC}, #{startWorkDate,jdbcType=TIMESTAMP}, 
+      #{educationLevel,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{zipCode,jdbcType=CHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{deptCode,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="org.example.demo.business.model.MStaff">
+    update BOOKWRITER.M_STAFF
+    set STAFF_NAME = #{staffName,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=CHAR},
+      BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      ID = #{id,jdbcType=CHAR},
+      PHONE_NUMBER = #{phoneNumber,jdbcType=VARCHAR},
+      POSITION = #{position,jdbcType=VARCHAR},
+      SALARY = #{salary,jdbcType=NUMERIC},
+      START_WORK_DATE = #{startWorkDate,jdbcType=TIMESTAMP},
+      EDUCATION_LEVEL = #{educationLevel,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      ZIP_CODE = #{zipCode,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+    where STAFF_CODE = #{staffCode,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select STAFF_CODE, STAFF_NAME, SEX, BIRTHDAY, ID, PHONE_NUMBER, POSITION, SALARY, 
+    START_WORK_DATE, EDUCATION_LEVEL, ADDRESS, ZIP_CODE, REMARK, DEPT_CODE
+    from BOOKWRITER.M_STAFF
+    where STAFF_CODE = #{staffCode,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select STAFF_CODE, STAFF_NAME, SEX, BIRTHDAY, ID, PHONE_NUMBER, POSITION, SALARY, 
+    START_WORK_DATE, EDUCATION_LEVEL, ADDRESS, ZIP_CODE, REMARK, DEPT_CODE
+    from BOOKWRITER.M_STAFF
+  </select>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.demo.business.mapper.TRegisterMapper">
+  <resultMap id="BaseResultMap" type="org.example.demo.business.model.TRegister">
+    <id column="REGISTER_NO" jdbcType="CHAR" property="registerNo" />
+    <result column="REGISTER_DATETIME" jdbcType="TIMESTAMP" property="registerDatetime" />
+    <result column="REGISTER_FEE" jdbcType="NUMERIC" property="registerFee" />
+    <result column="PATIENT_NO" jdbcType="CHAR" property="patientNo" />
+    <result column="DEPT_CODE" jdbcType="VARCHAR" property="deptCode" />
+    <result column="STAFF_CODE" jdbcType="CHAR" property="staffCode" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BOOKWRITER.T_REGISTER
+    where REGISTER_NO = #{registerNo,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="org.example.demo.business.model.TRegister">
+    insert into BOOKWRITER.T_REGISTER (REGISTER_NO, REGISTER_DATETIME, REGISTER_FEE, 
+      PATIENT_NO, DEPT_CODE, STAFF_CODE
+      )
+    values (#{registerNo,jdbcType=CHAR}, #{registerDatetime,jdbcType=TIMESTAMP}, #{registerFee,jdbcType=NUMERIC}, 
+      #{patientNo,jdbcType=CHAR}, #{deptCode,jdbcType=VARCHAR}, #{staffCode,jdbcType=CHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="org.example.demo.business.model.TRegister">
+    update BOOKWRITER.T_REGISTER
+    set REGISTER_DATETIME = #{registerDatetime,jdbcType=TIMESTAMP},
+      REGISTER_FEE = #{registerFee,jdbcType=NUMERIC},
+      PATIENT_NO = #{patientNo,jdbcType=CHAR},
+      DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
+      STAFF_CODE = #{staffCode,jdbcType=CHAR}
+    where REGISTER_NO = #{registerNo,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select REGISTER_NO, REGISTER_DATETIME, REGISTER_FEE, PATIENT_NO, DEPT_CODE, STAFF_CODE
+    from BOOKWRITER.T_REGISTER
+    where REGISTER_NO = #{registerNo,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select REGISTER_NO, REGISTER_DATETIME, REGISTER_FEE, PATIENT_NO, DEPT_CODE, STAFF_CODE
+    from BOOKWRITER.T_REGISTER
+  </select>
+</mapper>

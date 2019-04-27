@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试页面</title>
+<link rel="stylesheet" th:href="@{/static/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<h1>Welcome to Thymeleaf!</h1>
+	<button type="button" class="btn btn-primary btn-lg">大的原始按钮</button>
+	<h2 th:text="${homeForm.dbInfo}"></h2>
+	<h2 th:object="${homeForm.patient}" th:text="*{patientName}"></h2>
+</body>
+</html>

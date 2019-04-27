@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.demo.business.mapper.MDepartmentMapper">
+  <resultMap id="BaseResultMap" type="org.example.demo.business.model.MDepartment">
+    <id column="DEPT_CODE" jdbcType="VARCHAR" property="deptCode" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BOOKWRITER.M_DEPARTMENT
+    where DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.example.demo.business.model.MDepartment">
+    insert into BOOKWRITER.M_DEPARTMENT (DEPT_CODE, DEPT_NAME)
+    values (#{deptCode,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="org.example.demo.business.model.MDepartment">
+    update BOOKWRITER.M_DEPARTMENT
+    set DEPT_NAME = #{deptName,jdbcType=VARCHAR}
+    where DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select DEPT_CODE, DEPT_NAME
+    from BOOKWRITER.M_DEPARTMENT
+    where DEPT_CODE = #{deptCode,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select DEPT_CODE, DEPT_NAME
+    from BOOKWRITER.M_DEPARTMENT
+  </select>
+</mapper>

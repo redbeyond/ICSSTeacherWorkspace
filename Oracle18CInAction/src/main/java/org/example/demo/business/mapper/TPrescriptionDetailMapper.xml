@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.demo.business.mapper.TPrescriptionDetailMapper">
+  <resultMap id="BaseResultMap" type="org.example.demo.business.model.TPrescriptionDetail">
+    <id column="PRESCRIPTION_NO" jdbcType="CHAR" property="prescriptionNo" />
+    <id column="SEQ_NO" jdbcType="NUMERIC" property="seqNo" />
+    <result column="DRUG_CODE" jdbcType="CHAR" property="drugCode" />
+    <result column="QUANTITY" jdbcType="NUMERIC" property="quantity" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from BOOKWRITER.T_PRESCRIPTION_DETAIL
+    where PRESCRIPTION_NO = #{prescriptionNo,jdbcType=CHAR}
+      and SEQ_NO = #{seqNo,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="org.example.demo.business.model.TPrescriptionDetail">
+    insert into BOOKWRITER.T_PRESCRIPTION_DETAIL (PRESCRIPTION_NO, SEQ_NO, DRUG_CODE, 
+      QUANTITY)
+    values (#{prescriptionNo,jdbcType=CHAR}, #{seqNo,jdbcType=NUMERIC}, #{drugCode,jdbcType=CHAR}, 
+      #{quantity,jdbcType=NUMERIC})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="org.example.demo.business.model.TPrescriptionDetail">
+    update BOOKWRITER.T_PRESCRIPTION_DETAIL
+    set DRUG_CODE = #{drugCode,jdbcType=CHAR},
+      QUANTITY = #{quantity,jdbcType=NUMERIC}
+    where PRESCRIPTION_NO = #{prescriptionNo,jdbcType=CHAR}
+      and SEQ_NO = #{seqNo,jdbcType=NUMERIC}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select PRESCRIPTION_NO, SEQ_NO, DRUG_CODE, QUANTITY
+    from BOOKWRITER.T_PRESCRIPTION_DETAIL
+    where PRESCRIPTION_NO = #{prescriptionNo,jdbcType=CHAR}
+      and SEQ_NO = #{seqNo,jdbcType=NUMERIC}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select PRESCRIPTION_NO, SEQ_NO, DRUG_CODE, QUANTITY
+    from BOOKWRITER.T_PRESCRIPTION_DETAIL
+  </select>
+</mapper>

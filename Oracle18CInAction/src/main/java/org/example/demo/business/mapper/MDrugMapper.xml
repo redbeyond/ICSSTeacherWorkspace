@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.demo.business.mapper.MDrugMapper">
+  <resultMap id="BaseResultMap" type="org.example.demo.business.model.MDrug">
+    <id column="DRUG_CODE" jdbcType="CHAR" property="drugCode" />
+    <result column="CATEGORY" jdbcType="VARCHAR" property="category" />
+    <result column="DRUG_NAME" jdbcType="VARCHAR" property="drugName" />
+    <result column="TRADE_NAME" jdbcType="VARCHAR" property="tradeName" />
+    <result column="DRUG_SPEC" jdbcType="VARCHAR" property="drugSpec" />
+    <result column="RETAIL_PRICE" jdbcType="NUMERIC" property="retailPrice" />
+    <result column="WHOLE_SALE_PRICE" jdbcType="NUMERIC" property="wholeSalePrice" />
+    <result column="BUY_PRICE" jdbcType="NUMERIC" property="buyPrice" />
+    <result column="DRUG_AMOUNT" jdbcType="NUMERIC" property="drugAmount" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BOOKWRITER.M_DRUG
+    where DRUG_CODE = #{drugCode,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="org.example.demo.business.model.MDrug">
+    insert into BOOKWRITER.M_DRUG (DRUG_CODE, CATEGORY, DRUG_NAME, 
+      TRADE_NAME, DRUG_SPEC, RETAIL_PRICE, 
+      WHOLE_SALE_PRICE, BUY_PRICE, DRUG_AMOUNT
+      )
+    values (#{drugCode,jdbcType=CHAR}, #{category,jdbcType=VARCHAR}, #{drugName,jdbcType=VARCHAR}, 
+      #{tradeName,jdbcType=VARCHAR}, #{drugSpec,jdbcType=VARCHAR}, #{retailPrice,jdbcType=NUMERIC}, 
+      #{wholeSalePrice,jdbcType=NUMERIC}, #{buyPrice,jdbcType=NUMERIC}, #{drugAmount,jdbcType=NUMERIC}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="org.example.demo.business.model.MDrug">
+    update BOOKWRITER.M_DRUG
+    set CATEGORY = #{category,jdbcType=VARCHAR},
+      DRUG_NAME = #{drugName,jdbcType=VARCHAR},
+      TRADE_NAME = #{tradeName,jdbcType=VARCHAR},
+      DRUG_SPEC = #{drugSpec,jdbcType=VARCHAR},
+      RETAIL_PRICE = #{retailPrice,jdbcType=NUMERIC},
+      WHOLE_SALE_PRICE = #{wholeSalePrice,jdbcType=NUMERIC},
+      BUY_PRICE = #{buyPrice,jdbcType=NUMERIC},
+      DRUG_AMOUNT = #{drugAmount,jdbcType=NUMERIC}
+    where DRUG_CODE = #{drugCode,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select DRUG_CODE, CATEGORY, DRUG_NAME, TRADE_NAME, DRUG_SPEC, RETAIL_PRICE, WHOLE_SALE_PRICE, 
+    BUY_PRICE, DRUG_AMOUNT
+    from BOOKWRITER.M_DRUG
+    where DRUG_CODE = #{drugCode,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select DRUG_CODE, CATEGORY, DRUG_NAME, TRADE_NAME, DRUG_SPEC, RETAIL_PRICE, WHOLE_SALE_PRICE, 
+    BUY_PRICE, DRUG_AMOUNT
+    from BOOKWRITER.M_DRUG
+  </select>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.demo.business.mapper.TPatientMapper">
+  <resultMap id="BaseResultMap" type="org.example.demo.business.model.TPatient">
+    <id column="PATIENT_NO" jdbcType="CHAR" property="patientNo" />
+    <result column="PATIENT_NAME" jdbcType="VARCHAR" property="patientName" />
+    <result column="SEX" jdbcType="CHAR" property="sex" />
+    <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="ID" jdbcType="CHAR" property="id" />
+    <result column="PHONE_NUMBER" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="ZIP_CODE" jdbcType="CHAR" property="zipCode" />
+    <result column="DRUG_ALLERGY_HISTORY" jdbcType="VARCHAR" property="drugAllergyHistory" />
+    <result column="JOB_INFO" jdbcType="VARCHAR" property="jobInfo" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from BOOKWRITER.T_PATIENT
+    where PATIENT_NO = #{patientNo,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="org.example.demo.business.model.TPatient">
+    insert into BOOKWRITER.T_PATIENT (PATIENT_NO, PATIENT_NAME, SEX, 
+      BIRTHDAY, ID, PHONE_NUMBER, 
+      ADDRESS, ZIP_CODE, DRUG_ALLERGY_HISTORY, 
+      JOB_INFO)
+    values (#{patientNo,jdbcType=CHAR}, #{patientName,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{id,jdbcType=CHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{zipCode,jdbcType=CHAR}, #{drugAllergyHistory,jdbcType=VARCHAR}, 
+      #{jobInfo,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="org.example.demo.business.model.TPatient">
+    update BOOKWRITER.T_PATIENT
+    set PATIENT_NAME = #{patientName,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=CHAR},
+      BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      ID = #{id,jdbcType=CHAR},
+      PHONE_NUMBER = #{phoneNumber,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      ZIP_CODE = #{zipCode,jdbcType=CHAR},
+      DRUG_ALLERGY_HISTORY = #{drugAllergyHistory,jdbcType=VARCHAR},
+      JOB_INFO = #{jobInfo,jdbcType=VARCHAR}
+    where PATIENT_NO = #{patientNo,jdbcType=CHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select PATIENT_NO, PATIENT_NAME, SEX, BIRTHDAY, ID, PHONE_NUMBER, ADDRESS, ZIP_CODE, 
+    DRUG_ALLERGY_HISTORY, JOB_INFO
+    from BOOKWRITER.T_PATIENT
+    where PATIENT_NO = #{patientNo,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select PATIENT_NO, PATIENT_NAME, SEX, BIRTHDAY, ID, PHONE_NUMBER, ADDRESS, ZIP_CODE, 
+    DRUG_ALLERGY_HISTORY, JOB_INFO
+    from BOOKWRITER.T_PATIENT
+  </select>
+</mapper>
