@@ -5,30 +5,42 @@
     <id column="PRESCRIPTION_NO" jdbcType="CHAR" property="prescriptionNo" />
     <result column="ORDER_DATETIME" jdbcType="TIMESTAMP" property="orderDatetime" />
     <result column="CASE_REC_NO" jdbcType="CHAR" property="caseRecNo" />
+    <result column="CREATE_CODE" jdbcType="CHAR" property="createCode" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="UPDATE_CODE" jdbcType="CHAR" property="updateCode" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from BOOKWRITER.T_PRESCRIPTION
     where PRESCRIPTION_NO = #{prescriptionNo,jdbcType=CHAR}
   </delete>
   <insert id="insert" parameterType="org.example.demo.business.model.TPrescription">
-    insert into BOOKWRITER.T_PRESCRIPTION (PRESCRIPTION_NO, ORDER_DATETIME, CASE_REC_NO
-      )
-    values (#{prescriptionNo,jdbcType=CHAR}, #{orderDatetime,jdbcType=TIMESTAMP}, #{caseRecNo,jdbcType=CHAR}
-      )
+    insert into BOOKWRITER.T_PRESCRIPTION (PRESCRIPTION_NO, ORDER_DATETIME, CASE_REC_NO, 
+      CREATE_CODE, CREATE_DATE, UPDATE_CODE, 
+      UPDATE_DATE)
+    values (#{prescriptionNo,jdbcType=CHAR}, #{orderDatetime,jdbcType=TIMESTAMP}, #{caseRecNo,jdbcType=CHAR}, 
+      #{createCode,jdbcType=CHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateCode,jdbcType=CHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <update id="updateByPrimaryKey" parameterType="org.example.demo.business.model.TPrescription">
     update BOOKWRITER.T_PRESCRIPTION
     set ORDER_DATETIME = #{orderDatetime,jdbcType=TIMESTAMP},
-      CASE_REC_NO = #{caseRecNo,jdbcType=CHAR}
+      CASE_REC_NO = #{caseRecNo,jdbcType=CHAR},
+      CREATE_CODE = #{createCode,jdbcType=CHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      UPDATE_CODE = #{updateCode,jdbcType=CHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
     where PRESCRIPTION_NO = #{prescriptionNo,jdbcType=CHAR}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select PRESCRIPTION_NO, ORDER_DATETIME, CASE_REC_NO
+    select PRESCRIPTION_NO, ORDER_DATETIME, CASE_REC_NO, CREATE_CODE, CREATE_DATE, UPDATE_CODE, 
+    UPDATE_DATE
     from BOOKWRITER.T_PRESCRIPTION
     where PRESCRIPTION_NO = #{prescriptionNo,jdbcType=CHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select PRESCRIPTION_NO, ORDER_DATETIME, CASE_REC_NO
+    select PRESCRIPTION_NO, ORDER_DATETIME, CASE_REC_NO, CREATE_CODE, CREATE_DATE, UPDATE_CODE, 
+    UPDATE_DATE
     from BOOKWRITER.T_PRESCRIPTION
   </select>
 </mapper>

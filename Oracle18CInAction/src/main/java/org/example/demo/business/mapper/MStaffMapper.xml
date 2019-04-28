@@ -7,6 +7,7 @@
     <result column="SEX" jdbcType="CHAR" property="sex" />
     <result column="BIRTHDAY" jdbcType="TIMESTAMP" property="birthday" />
     <result column="ID" jdbcType="CHAR" property="id" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
     <result column="PHONE_NUMBER" jdbcType="VARCHAR" property="phoneNumber" />
     <result column="POSITION" jdbcType="VARCHAR" property="position" />
     <result column="SALARY" jdbcType="NUMERIC" property="salary" />
@@ -23,15 +24,17 @@
   </delete>
   <insert id="insert" parameterType="org.example.demo.business.model.MStaff">
     insert into BOOKWRITER.M_STAFF (STAFF_CODE, STAFF_NAME, SEX, 
-      BIRTHDAY, ID, PHONE_NUMBER, 
-      POSITION, SALARY, START_WORK_DATE, 
-      EDUCATION_LEVEL, ADDRESS, ZIP_CODE, 
-      REMARK, DEPT_CODE)
+      BIRTHDAY, ID, PASSWORD, 
+      PHONE_NUMBER, POSITION, SALARY, 
+      START_WORK_DATE, EDUCATION_LEVEL, ADDRESS, 
+      ZIP_CODE, REMARK, DEPT_CODE
+      )
     values (#{staffCode,jdbcType=CHAR}, #{staffName,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
-      #{birthday,jdbcType=TIMESTAMP}, #{id,jdbcType=CHAR}, #{phoneNumber,jdbcType=VARCHAR}, 
-      #{position,jdbcType=VARCHAR}, #{salary,jdbcType=NUMERIC}, #{startWorkDate,jdbcType=TIMESTAMP}, 
-      #{educationLevel,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{zipCode,jdbcType=CHAR}, 
-      #{remark,jdbcType=VARCHAR}, #{deptCode,jdbcType=VARCHAR})
+      #{birthday,jdbcType=TIMESTAMP}, #{id,jdbcType=CHAR}, #{password,jdbcType=VARCHAR}, 
+      #{phoneNumber,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, #{salary,jdbcType=NUMERIC}, 
+      #{startWorkDate,jdbcType=TIMESTAMP}, #{educationLevel,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{zipCode,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{deptCode,jdbcType=VARCHAR}
+      )
   </insert>
   <update id="updateByPrimaryKey" parameterType="org.example.demo.business.model.MStaff">
     update BOOKWRITER.M_STAFF
@@ -39,6 +42,7 @@
       SEX = #{sex,jdbcType=CHAR},
       BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
       ID = #{id,jdbcType=CHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
       PHONE_NUMBER = #{phoneNumber,jdbcType=VARCHAR},
       POSITION = #{position,jdbcType=VARCHAR},
       SALARY = #{salary,jdbcType=NUMERIC},
@@ -51,14 +55,14 @@
     where STAFF_CODE = #{staffCode,jdbcType=CHAR}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select STAFF_CODE, STAFF_NAME, SEX, BIRTHDAY, ID, PHONE_NUMBER, POSITION, SALARY, 
-    START_WORK_DATE, EDUCATION_LEVEL, ADDRESS, ZIP_CODE, REMARK, DEPT_CODE
+    select STAFF_CODE, STAFF_NAME, SEX, BIRTHDAY, ID, PASSWORD, PHONE_NUMBER, POSITION, 
+    SALARY, START_WORK_DATE, EDUCATION_LEVEL, ADDRESS, ZIP_CODE, REMARK, DEPT_CODE
     from BOOKWRITER.M_STAFF
     where STAFF_CODE = #{staffCode,jdbcType=CHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select STAFF_CODE, STAFF_NAME, SEX, BIRTHDAY, ID, PHONE_NUMBER, POSITION, SALARY, 
-    START_WORK_DATE, EDUCATION_LEVEL, ADDRESS, ZIP_CODE, REMARK, DEPT_CODE
+    select STAFF_CODE, STAFF_NAME, SEX, BIRTHDAY, ID, PASSWORD, PHONE_NUMBER, POSITION, 
+    SALARY, START_WORK_DATE, EDUCATION_LEVEL, ADDRESS, ZIP_CODE, REMARK, DEPT_CODE
     from BOOKWRITER.M_STAFF
   </select>
 </mapper>

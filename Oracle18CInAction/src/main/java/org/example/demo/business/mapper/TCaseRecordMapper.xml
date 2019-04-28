@@ -7,6 +7,10 @@
     <result column="MAIN_SYMPTOM" jdbcType="VARCHAR" property="mainSymptom" />
     <result column="STAFF_CODE" jdbcType="CHAR" property="staffCode" />
     <result column="PATIENT_NO" jdbcType="CHAR" property="patientNo" />
+    <result column="CREATE_CODE" jdbcType="CHAR" property="createCode" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="UPDATE_CODE" jdbcType="CHAR" property="updateCode" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from BOOKWRITER.T_CASE_RECORD
@@ -14,25 +18,35 @@
   </delete>
   <insert id="insert" parameterType="org.example.demo.business.model.TCaseRecord">
     insert into BOOKWRITER.T_CASE_RECORD (CASE_REC_NO, CONSULTATION_DATE, MAIN_SYMPTOM, 
-      STAFF_CODE, PATIENT_NO)
+      STAFF_CODE, PATIENT_NO, CREATE_CODE, 
+      CREATE_DATE, UPDATE_CODE, UPDATE_DATE
+      )
     values (#{caseRecNo,jdbcType=CHAR}, #{consultationDate,jdbcType=TIMESTAMP}, #{mainSymptom,jdbcType=VARCHAR}, 
-      #{staffCode,jdbcType=CHAR}, #{patientNo,jdbcType=CHAR})
+      #{staffCode,jdbcType=CHAR}, #{patientNo,jdbcType=CHAR}, #{createCode,jdbcType=CHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateCode,jdbcType=CHAR}, #{updateDate,jdbcType=TIMESTAMP}
+      )
   </insert>
   <update id="updateByPrimaryKey" parameterType="org.example.demo.business.model.TCaseRecord">
     update BOOKWRITER.T_CASE_RECORD
     set CONSULTATION_DATE = #{consultationDate,jdbcType=TIMESTAMP},
       MAIN_SYMPTOM = #{mainSymptom,jdbcType=VARCHAR},
       STAFF_CODE = #{staffCode,jdbcType=CHAR},
-      PATIENT_NO = #{patientNo,jdbcType=CHAR}
+      PATIENT_NO = #{patientNo,jdbcType=CHAR},
+      CREATE_CODE = #{createCode,jdbcType=CHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      UPDATE_CODE = #{updateCode,jdbcType=CHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
     where CASE_REC_NO = #{caseRecNo,jdbcType=CHAR}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select CASE_REC_NO, CONSULTATION_DATE, MAIN_SYMPTOM, STAFF_CODE, PATIENT_NO
+    select CASE_REC_NO, CONSULTATION_DATE, MAIN_SYMPTOM, STAFF_CODE, PATIENT_NO, CREATE_CODE, 
+    CREATE_DATE, UPDATE_CODE, UPDATE_DATE
     from BOOKWRITER.T_CASE_RECORD
     where CASE_REC_NO = #{caseRecNo,jdbcType=CHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select CASE_REC_NO, CONSULTATION_DATE, MAIN_SYMPTOM, STAFF_CODE, PATIENT_NO
+    select CASE_REC_NO, CONSULTATION_DATE, MAIN_SYMPTOM, STAFF_CODE, PATIENT_NO, CREATE_CODE, 
+    CREATE_DATE, UPDATE_CODE, UPDATE_DATE
     from BOOKWRITER.T_CASE_RECORD
   </select>
 </mapper>

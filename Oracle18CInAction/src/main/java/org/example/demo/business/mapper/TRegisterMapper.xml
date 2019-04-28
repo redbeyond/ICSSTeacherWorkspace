@@ -8,6 +8,10 @@
     <result column="PATIENT_NO" jdbcType="CHAR" property="patientNo" />
     <result column="DEPT_CODE" jdbcType="VARCHAR" property="deptCode" />
     <result column="STAFF_CODE" jdbcType="CHAR" property="staffCode" />
+    <result column="CREATE_CODE" jdbcType="CHAR" property="createCode" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="UPDATE_CODE" jdbcType="CHAR" property="updateCode" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from BOOKWRITER.T_REGISTER
@@ -15,11 +19,13 @@
   </delete>
   <insert id="insert" parameterType="org.example.demo.business.model.TRegister">
     insert into BOOKWRITER.T_REGISTER (REGISTER_NO, REGISTER_DATETIME, REGISTER_FEE, 
-      PATIENT_NO, DEPT_CODE, STAFF_CODE
-      )
+      PATIENT_NO, DEPT_CODE, STAFF_CODE, 
+      CREATE_CODE, CREATE_DATE, UPDATE_CODE, 
+      UPDATE_DATE)
     values (#{registerNo,jdbcType=CHAR}, #{registerDatetime,jdbcType=TIMESTAMP}, #{registerFee,jdbcType=NUMERIC}, 
-      #{patientNo,jdbcType=CHAR}, #{deptCode,jdbcType=VARCHAR}, #{staffCode,jdbcType=CHAR}
-      )
+      #{patientNo,jdbcType=CHAR}, #{deptCode,jdbcType=VARCHAR}, #{staffCode,jdbcType=CHAR}, 
+      #{createCode,jdbcType=CHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateCode,jdbcType=CHAR}, 
+      #{updateDate,jdbcType=TIMESTAMP})
   </insert>
   <update id="updateByPrimaryKey" parameterType="org.example.demo.business.model.TRegister">
     update BOOKWRITER.T_REGISTER
@@ -27,16 +33,22 @@
       REGISTER_FEE = #{registerFee,jdbcType=NUMERIC},
       PATIENT_NO = #{patientNo,jdbcType=CHAR},
       DEPT_CODE = #{deptCode,jdbcType=VARCHAR},
-      STAFF_CODE = #{staffCode,jdbcType=CHAR}
+      STAFF_CODE = #{staffCode,jdbcType=CHAR},
+      CREATE_CODE = #{createCode,jdbcType=CHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      UPDATE_CODE = #{updateCode,jdbcType=CHAR},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
     where REGISTER_NO = #{registerNo,jdbcType=CHAR}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select REGISTER_NO, REGISTER_DATETIME, REGISTER_FEE, PATIENT_NO, DEPT_CODE, STAFF_CODE
+    select REGISTER_NO, REGISTER_DATETIME, REGISTER_FEE, PATIENT_NO, DEPT_CODE, STAFF_CODE, 
+    CREATE_CODE, CREATE_DATE, UPDATE_CODE, UPDATE_DATE
     from BOOKWRITER.T_REGISTER
     where REGISTER_NO = #{registerNo,jdbcType=CHAR}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
-    select REGISTER_NO, REGISTER_DATETIME, REGISTER_FEE, PATIENT_NO, DEPT_CODE, STAFF_CODE
+    select REGISTER_NO, REGISTER_DATETIME, REGISTER_FEE, PATIENT_NO, DEPT_CODE, STAFF_CODE, 
+    CREATE_CODE, CREATE_DATE, UPDATE_CODE, UPDATE_DATE
     from BOOKWRITER.T_REGISTER
   </select>
 </mapper>

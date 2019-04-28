@@ -4,143 +4,153 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class MStaff extends BaseEntity {
-	private String staffCode;
+    private String staffCode;
 
-	private String staffName;
+    private String staffName;
 
-	private String sex;
+    private String sex;
 
-	private Date birthday;
+    private Date birthday;
 
-	private String id;
+    private String id;
 
-	private String phoneNumber;
+    private String password;
 
-	private String position;
+    private String phoneNumber;
 
-	private BigDecimal salary;
+    private String position;
 
-	private Date startWorkDate;
+    private BigDecimal salary;
 
-	private String educationLevel;
+    private Date startWorkDate;
 
-	private String address;
+    private String educationLevel;
 
-	private String zipCode;
+    private String address;
 
-	private String remark;
+    private String zipCode;
 
-	private String deptCode;
+    private String remark;
 
-	public String getStaffCode() {
-		return staffCode;
-	}
+    private String deptCode;
 
-	public void setStaffCode(String staffCode) {
-		this.staffCode = staffCode;
-	}
+    public String getStaffCode() {
+        return staffCode;
+    }
 
-	public String getStaffName() {
-		return staffName;
-	}
+    public void setStaffCode(String staffCode) {
+        this.staffCode = staffCode;
+    }
 
-	public void setStaffName(String staffName) {
-		this.staffName = staffName;
-	}
+    public String getStaffName() {
+        return staffName;
+    }
 
-	public String getSex() {
-		return sex;
-	}
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
+    }
 
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
+    public String getSex() {
+        return sex;
+    }
 
-	public Date getBirthday() {
-		return birthday;
-	}
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
+    public Date getBirthday() {
+        return birthday;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getPosition() {
-		return position;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public void setPosition(String position) {
-		this.position = position;
-	}
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	public BigDecimal getSalary() {
-		return salary;
-	}
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-	public void setSalary(BigDecimal salary) {
-		this.salary = salary;
-	}
+    public String getPosition() {
+        return position;
+    }
 
-	public Date getStartWorkDate() {
-		return startWorkDate;
-	}
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
-	public void setStartWorkDate(Date startWorkDate) {
-		this.startWorkDate = startWorkDate;
-	}
+    public BigDecimal getSalary() {
+        return salary;
+    }
 
-	public String getEducationLevel() {
-		return educationLevel;
-	}
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
+    }
 
-	public void setEducationLevel(String educationLevel) {
-		this.educationLevel = educationLevel;
-	}
+    public Date getStartWorkDate() {
+        return startWorkDate;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public void setStartWorkDate(Date startWorkDate) {
+        this.startWorkDate = startWorkDate;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public String getEducationLevel() {
+        return educationLevel;
+    }
 
-	public String getZipCode() {
-		return zipCode;
-	}
+    public void setEducationLevel(String educationLevel) {
+        this.educationLevel = educationLevel;
+    }
 
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public String getRemark() {
-		return remark;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public String getZipCode() {
+        return zipCode;
+    }
 
-	public String getDeptCode() {
-		return deptCode;
-	}
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
 
-	public void setDeptCode(String deptCode) {
-		this.deptCode = deptCode;
-	}
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getDeptCode() {
+        return deptCode;
+    }
+
+    public void setDeptCode(String deptCode) {
+        this.deptCode = deptCode;
+    }
 }

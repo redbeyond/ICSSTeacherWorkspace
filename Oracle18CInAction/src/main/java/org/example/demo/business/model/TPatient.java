@@ -3,103 +3,143 @@ package org.example.demo.business.model;
 import java.util.Date;
 
 public class TPatient extends BaseEntity {
-	private String patientNo;
+    private String patientNo;
 
-	private String patientName;
+    private String patientName;
 
-	private String sex;
+    private String sex;
 
-	private Date birthday;
+    private Date birthday;
 
-	private String id;
+    private String id;
 
-	private String phoneNumber;
+    private String phoneNumber;
 
-	private String address;
+    private String address;
 
-	private String zipCode;
+    private String zipCode;
 
-	private String drugAllergyHistory;
+    private String drugAllergyHistory;
 
-	private String jobInfo;
+    private String jobInfo;
 
-	public String getPatientNo() {
-		return patientNo;
-	}
+    private String createCode;
 
-	public void setPatientNo(String patientNo) {
-		this.patientNo = patientNo;
-	}
+    private Date createDate;
 
-	public String getPatientName() {
-		return patientName;
-	}
+    private String updateCode;
 
-	public void setPatientName(String patientName) {
-		this.patientName = patientName;
-	}
+    private Date updateDate;
 
-	public String getSex() {
-		return sex;
-	}
+    public String getPatientNo() {
+        return patientNo;
+    }
 
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
+    public void setPatientNo(String patientNo) {
+        this.patientNo = patientNo;
+    }
 
-	public Date getBirthday() {
-		return birthday;
-	}
+    public String getPatientName() {
+        return patientName;
+    }
 
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getSex() {
+        return sex;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    public Date getBirthday() {
+        return birthday;
+    }
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getZipCode() {
-		return zipCode;
-	}
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-	public String getDrugAllergyHistory() {
-		return drugAllergyHistory;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public void setDrugAllergyHistory(String drugAllergyHistory) {
-		this.drugAllergyHistory = drugAllergyHistory;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String getJobInfo() {
-		return jobInfo;
-	}
+    public String getZipCode() {
+        return zipCode;
+    }
 
-	public void setJobInfo(String jobInfo) {
-		this.jobInfo = jobInfo;
-	}
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getDrugAllergyHistory() {
+        return drugAllergyHistory;
+    }
+
+    public void setDrugAllergyHistory(String drugAllergyHistory) {
+        this.drugAllergyHistory = drugAllergyHistory;
+    }
+
+    public String getJobInfo() {
+        return jobInfo;
+    }
+
+    public void setJobInfo(String jobInfo) {
+        this.jobInfo = jobInfo;
+    }
+
+    public String getCreateCode() {
+        return createCode;
+    }
+
+    public void setCreateCode(String createCode) {
+        this.createCode = createCode;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getUpdateCode() {
+        return updateCode;
+    }
+
+    public void setUpdateCode(String updateCode) {
+        this.updateCode = updateCode;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
 }

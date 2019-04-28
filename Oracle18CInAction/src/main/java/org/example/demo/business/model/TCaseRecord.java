@@ -3,53 +3,93 @@ package org.example.demo.business.model;
 import java.util.Date;
 
 public class TCaseRecord extends BaseEntity {
-	private String caseRecNo;
+    private String caseRecNo;
 
-	private Date consultationDate;
+    private Date consultationDate;
 
-	private String mainSymptom;
+    private String mainSymptom;
 
-	private String staffCode;
+    private String staffCode;
 
-	private String patientNo;
+    private String patientNo;
 
-	public String getCaseRecNo() {
-		return caseRecNo;
-	}
+    private String createCode;
 
-	public void setCaseRecNo(String caseRecNo) {
-		this.caseRecNo = caseRecNo;
-	}
+    private Date createDate;
 
-	public Date getConsultationDate() {
-		return consultationDate;
-	}
+    private String updateCode;
 
-	public void setConsultationDate(Date consultationDate) {
-		this.consultationDate = consultationDate;
-	}
+    private Date updateDate;
 
-	public String getMainSymptom() {
-		return mainSymptom;
-	}
+    public String getCaseRecNo() {
+        return caseRecNo;
+    }
 
-	public void setMainSymptom(String mainSymptom) {
-		this.mainSymptom = mainSymptom;
-	}
+    public void setCaseRecNo(String caseRecNo) {
+        this.caseRecNo = caseRecNo;
+    }
 
-	public String getStaffCode() {
-		return staffCode;
-	}
+    public Date getConsultationDate() {
+        return consultationDate;
+    }
 
-	public void setStaffCode(String staffCode) {
-		this.staffCode = staffCode;
-	}
+    public void setConsultationDate(Date consultationDate) {
+        this.consultationDate = consultationDate;
+    }
 
-	public String getPatientNo() {
-		return patientNo;
-	}
+    public String getMainSymptom() {
+        return mainSymptom;
+    }
 
-	public void setPatientNo(String patientNo) {
-		this.patientNo = patientNo;
-	}
+    public void setMainSymptom(String mainSymptom) {
+        this.mainSymptom = mainSymptom;
+    }
+
+    public String getStaffCode() {
+        return staffCode;
+    }
+
+    public void setStaffCode(String staffCode) {
+        this.staffCode = staffCode;
+    }
+
+    public String getPatientNo() {
+        return patientNo;
+    }
+
+    public void setPatientNo(String patientNo) {
+        this.patientNo = patientNo;
+    }
+
+    public String getCreateCode() {
+        return createCode;
+    }
+
+    public void setCreateCode(String createCode) {
+        this.createCode = createCode;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getUpdateCode() {
+        return updateCode;
+    }
+
+    public void setUpdateCode(String updateCode) {
+        this.updateCode = updateCode;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
 }

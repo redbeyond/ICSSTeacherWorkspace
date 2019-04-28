@@ -4,63 +4,103 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class TRegister extends BaseEntity {
-	private String registerNo;
+    private String registerNo;
 
-	private Date registerDatetime;
+    private Date registerDatetime;
 
-	private BigDecimal registerFee;
+    private BigDecimal registerFee;
 
-	private String patientNo;
+    private String patientNo;
 
-	private String deptCode;
+    private String deptCode;
 
-	private String staffCode;
+    private String staffCode;
 
-	public String getRegisterNo() {
-		return registerNo;
-	}
+    private String createCode;
 
-	public void setRegisterNo(String registerNo) {
-		this.registerNo = registerNo;
-	}
+    private Date createDate;
 
-	public Date getRegisterDatetime() {
-		return registerDatetime;
-	}
+    private String updateCode;
 
-	public void setRegisterDatetime(Date registerDatetime) {
-		this.registerDatetime = registerDatetime;
-	}
+    private Date updateDate;
 
-	public BigDecimal getRegisterFee() {
-		return registerFee;
-	}
+    public String getRegisterNo() {
+        return registerNo;
+    }
 
-	public void setRegisterFee(BigDecimal registerFee) {
-		this.registerFee = registerFee;
-	}
+    public void setRegisterNo(String registerNo) {
+        this.registerNo = registerNo;
+    }
 
-	public String getPatientNo() {
-		return patientNo;
-	}
+    public Date getRegisterDatetime() {
+        return registerDatetime;
+    }
 
-	public void setPatientNo(String patientNo) {
-		this.patientNo = patientNo;
-	}
+    public void setRegisterDatetime(Date registerDatetime) {
+        this.registerDatetime = registerDatetime;
+    }
 
-	public String getDeptCode() {
-		return deptCode;
-	}
+    public BigDecimal getRegisterFee() {
+        return registerFee;
+    }
 
-	public void setDeptCode(String deptCode) {
-		this.deptCode = deptCode;
-	}
+    public void setRegisterFee(BigDecimal registerFee) {
+        this.registerFee = registerFee;
+    }
 
-	public String getStaffCode() {
-		return staffCode;
-	}
+    public String getPatientNo() {
+        return patientNo;
+    }
 
-	public void setStaffCode(String staffCode) {
-		this.staffCode = staffCode;
-	}
+    public void setPatientNo(String patientNo) {
+        this.patientNo = patientNo;
+    }
+
+    public String getDeptCode() {
+        return deptCode;
+    }
+
+    public void setDeptCode(String deptCode) {
+        this.deptCode = deptCode;
+    }
+
+    public String getStaffCode() {
+        return staffCode;
+    }
+
+    public void setStaffCode(String staffCode) {
+        this.staffCode = staffCode;
+    }
+
+    public String getCreateCode() {
+        return createCode;
+    }
+
+    public void setCreateCode(String createCode) {
+        this.createCode = createCode;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getUpdateCode() {
+        return updateCode;
+    }
+
+    public void setUpdateCode(String updateCode) {
+        this.updateCode = updateCode;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
 }
